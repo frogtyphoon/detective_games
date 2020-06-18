@@ -4,11 +4,6 @@ from telebot import types
 
 bot = telebot.TeleBot(config.TOKEN_POLICE)
 
-bot.send_message('991296393', 'Чёрт, Паша, ты где пропал?', parse_mode='html')
-bot.send_message('991296393', 'Уже неделя прошла... Где ты пропадаешь???', parse_mode='html')
-bot.send_message('991296393', 'Если не отвечаешь через неделю, то ты уволен!', parse_mode='html')
-bot.send_message('991296393', 'У тебя осталось 24 часа и ты не будешь стоять рядом со мной!', parse_mode='html')
-
 bot_police = [
     [
         ['Я был пьян, что тебе надо?', 'Да как ты смеешь разговаривать со соим начальником???\n'
