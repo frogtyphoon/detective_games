@@ -1,11 +1,14 @@
 import telebot
 import config
+from time import sleep
 from telebot import types
 
 bot = telebot.TeleBot(config.TOKEN_POLICE)
 
-answer = ''
+# отношение
+relationships = 0
 
+# список [ответов игрока, ответов персонажа, зависимоть отношения]
 bot_police = [
     [
         ['Я был пьян, что тебе надо?', 'Да как ты смеешь разговаривать со своим начальником???\n'
@@ -19,11 +22,10 @@ bot_police = [
     ]
 ]
 
-
+# главная функия диалога
 def bot_police_main(num):
-    global answer
+    markup = types.ReplyKeyboardMarkup(row_width=1)  # создание клавиатуры
 
-    markup = types.ReplyKeyboardMarkup(row_width=1)
     item1 = types.KeyboardButton(bot_police[num][0][0])
     item2 = types.KeyboardButton(bot_police[num][1][0])
     item3 = types.KeyboardButton(bot_police[num][2][0])
@@ -34,16 +36,19 @@ def bot_police_main(num):
     bot.send_message('991296393', 'Отвечай как можно скорей!',
                      parse_mode='html', reply_markup=markup)
 
+    # ответ персонажа на ответ игрока
     @bot.message_handler(func=lambda message: True, content_types=['text'])
     def said(message):
-        global answer
+        global relationships
+
         for i in range(4):
             if message.text == bot_police[num][i][0]:
                 markup_remove = types.ReplyKeyboardRemove()
+                sleep(2)
                 bot.send_message(message.chat.id, bot_police[num][i][1], reply_markup=markup_remove)
                 bot.stop_polling()
-                answer = bot_police[num][i][2]
+                relationships = bot_police[num][i][2]
 
-    bot.polling(none_stop=False, interval=0, timeout=1)
+    bot.polling(none_stop=False, interval=0, timeout=1)  # запрос к серверу
 
-    return [1, answer]
+    return relationships  # результат отношения от варината ответа
