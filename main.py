@@ -12,10 +12,10 @@ import Bot__police as police
 
 bot = telebot.TeleBot(config.TOKEN_POLICE)
 
-bot.send_message('991296393', 'Чёрт, Паша, ты где пропал?', parse_mode='html')
-bot.send_message('991296393', 'Уже неделя прошла... Где ты пропадаешь???', parse_mode='html')
-bot.send_message('991296393', 'Если не отвечаешь через неделю, то ты уволен!', parse_mode='html')
-bot.send_message('991296393', 'У тебя осталось 24 часа и ты не будешь стоять рядом со мной!',
+bot.send_message(config.ID_PERSON, 'Чёрт, Паша, ты где пропал?', parse_mode='html')
+bot.send_message(config.ID_PERSON, 'Уже неделя прошла... Где ты пропадаешь???', parse_mode='html')
+bot.send_message(config.ID_PERSON, 'Если не отвечаешь через неделю, то ты уволен!', parse_mode='html')
+bot.send_message(config.ID_PERSON, 'У тебя осталось 24 часа и ты не будешь стоять рядом со мной!',
                  parse_mode='html')
 
 
@@ -25,6 +25,9 @@ check = police.bot_police_main(0)
 if bool(check):
     print(0)
 
+relationships_Bot__police += check[0]
+
+bot.send_message(config.ID_PERSON, check[1], parse_mode='html')
 
 if __name__ == '__main__':
     bot.polling(none_stop=True)
