@@ -17,18 +17,23 @@ bot_police = [
 ]
 
 
-@bot.message_handler(commands=['text'])
-def bot_police_main(message):
+def bot_police_main(num):
     markup = types.ReplyKeyboardMarkup(row_width=1)
-    item1 = types.KeyboardButton(bot_police[0][0][0])
-    item2 = types.KeyboardButton(bot_police[0][1][0])
-    item3 = types.KeyboardButton(bot_police[0][2][0])
-    item4 = types.KeyboardButton(bot_police[0][3][0])
+    item1 = types.KeyboardButton(bot_police[num][0][0])
+    item2 = types.KeyboardButton(bot_police[num][1][0])
+    item3 = types.KeyboardButton(bot_police[num][2][0])
+    item4 = types.KeyboardButton(bot_police[num][3][0])
 
     markup.add(item1, item2, item3, item4)  # добовляем эелементы в клавиатуру
 
     bot.send_message('991296393', 'Отвечай как можно скорей!',
                      parse_mode='html', reply_markup=markup)
 
+    @bot.message_handler(func=lambda message: True, content_types=['text'])
+    def said(message):
+        if 'Я был пьян,' in message.text:
+            bot.send_message(message.chat.id, bot_police[num][0][1])
+            return 
 
-bot.polling(none_stop=True)
+    bot.polling(none_stop=False, interval=0, timeout=2)
+
