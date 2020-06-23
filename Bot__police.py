@@ -33,7 +33,8 @@ def bot_police_main(num):
     def said(message):
         if 'Я был пьян,' in message.text:
             bot.send_message(message.chat.id, bot_police[num][0][1])
-            return 
+            bot.stop_polling()
 
-    bot.polling(none_stop=False, interval=0, timeout=2)
+    bot.polling(none_stop=False, interval=0, timeout=1)
 
+    return '1'
