@@ -5,24 +5,26 @@ from telebot import types
 
 bot = telebot.TeleBot(config.TOKEN_CRIMINALIST)
 
+# отношение
 relationships = 0
 
+# список [ответов игрока, ответов персонажа, зависимоть отношения]
 bot_criminalist = [
     [
-        ['Я был пьян, что тебе надо?', 'Да как ты смеешь разговаривать со своим начальником???\n'
-                                       'Ещё раз что-то вякнишь, сниму зарплату!', -1],
-        ['Да кто ты такой, чтобы мне указывать?\n'
-         'Я тебя одним пальцем положу, ты и не встанешь!', 'Да как ты смеешь разговаривать со соим начальником???\n'
-                                                           'Ещё раз что-то вякнишь, сниму зарплату!', -2],
-        ['Привет, дружок', 'Хорошо. Я рад, что ты снова с нами в строю', 0],
-        ['Извиняюсь за своё отсутвие, слегка приболел. Я готов к работе', 'Хорошо. Я рад, чо ты снова с нами в строю',
-         1],
+        ['Кто? впервые слышу...', 'Я не удивлён...\n', 0],
+        ['Хорошо, я запомню. Спасибо!', 'Также скажу, что улики могут быть в любом месте.'
+                                        ' Чем больше найдешь, тем лечге будеть поянть проиходящее\n'
+                                        'Удачи тебе', 1],
+        ['Уяснил. Спасибо, но лучше бы ты закрыл пасть, щенок', 'Я подозревал такое... Ладно, удачи тебе, тварь', -1],
+        ['Да пошёл ты! я тут царь, а ты говнарь', 'Я подозревал такое... Ладно, удачи тебе, тварь', -1],
     ]
 ]
 
 
-def bot_police_main(num):
-    markup = types.ReplyKeyboardMarkup(row_width=1)
+# главная функия диалога
+def bot_criminalist_main(num, content):
+    markup = types.ReplyKeyboardMarkup(row_width=1)  # создание клавиатуры
+
     item1 = types.KeyboardButton(bot_criminalist[num][0][0])
     item2 = types.KeyboardButton(bot_criminalist[num][1][0])
     item3 = types.KeyboardButton(bot_criminalist[num][2][0])
@@ -30,9 +32,10 @@ def bot_police_main(num):
 
     markup.add(item1, item2, item3, item4)  # добовляем эелементы в клавиатуру
 
-    bot.send_message('991296393', 'Отвечай как можно скорей!',
+    bot.send_message('991296393', content,
                      parse_mode='html', reply_markup=markup)
 
+    # ответ персонажа на ответ игрока
     @bot.message_handler(func=lambda message: True, content_types=['text'])
     def said(message):
         global relationships
@@ -45,6 +48,6 @@ def bot_police_main(num):
                 bot.stop_polling()
                 relationships = bot_criminalist[num][i][2]
 
-    bot.polling(none_stop=False, interval=0, timeout=1)
+    bot.polling(none_stop=False, interval=0, timeout=1)  # запрос к серверу
 
-    return relationships
+    return relationships  # результат отношения от варината ответа
