@@ -29,35 +29,48 @@ relationships_Bot__police += police.bot_police_main(0, 'Отвечай как м
 
 print(relationships_Bot__police, relationships_Bot__criminalist)
 
+# при плохих отношениях, майор не скажет о времени, а только потом напомнит ему
+time_talk_answer = False
 
-async def police_as():
-    global relationships_Bot__police
-    if relationships_Bot__police >= 0:
-        relationships_Bot__police += police.bot_police_main(0, 'Я рад, что ты снова с нами в строю')
+# Первая развязка (1, 2, 3)
+if relationships_Bot__police >= 0:
+    relationships_Bot__police += police.bot_police_main(1, 'Я рад, что ты снова с нами в строю')
+    if relationships_Bot__police <= 0:
+        if police.bot_police_main(2, 'Совсем страх потерял?') < 0:
+            relationships_Bot__police += -1
+            bot.send_message(config.ID_PERSON, 'Я сейчас на исходе, поэтому бегом на место преступления'
+                                               ' по адресу "УЛИЦА"\nКонец связи')
+            time_talk_answer = True
+        else:
+            relationships_Bot__police += 1
+            bot.send_message(config.ID_PERSON, 'Кратко ввожу в курс дела. Рядом произошёл суицид, сходи да проверь'
+                                               ' там всё')
+            relationships_Bot__police += police.bot_police_main(3, 'Чтобы через 15 мин был там, понял?!')
     else:
-        pass
+        bot.send_message(config.ID_PERSON, 'Тебе срочно надо выезжать "УЛИЦА", ведь убийца не дремлет')
+        relationships_Bot__police += police.bot_police_main(3, 'Добраться до точки и просмотреть убийтво, тебе даётся'
+                                                               ' 15мин. Уяснил, Павел?')
+# Вторая развязка (4)
+else:
+    if police.bot_police_main(4, 'Ещё раз что-то вякнишь, сниму зарплату!') < 0:
+        time_talk_answer = True
+        bot.send_message(config.ID_PERSON, 'Я знаю тебя очень хорошо, и если ты не хочешь, чтобы твоя карьера рухнула'
+                                           ' прямо сейча, то бегом на место преступления!\n'
+                                           'Вот координаты, сам разберёшься "КОООРДИНАТЫЫ"')
+    else:
+        bot.send_message(config.ID_PERSON, 'Значит неподалеку что-то случилось, выдвигайся туда\n'
+                                           'У тебя есть 15 мин. Вот координаты "КООРЛДИНАТЫ"')
 
 
-async def criminalist_as():
-    global relationships_Bot__criminalist
+# криминалист
+bot_c = telebot.TeleBot(config.TOKEN_CRIMINALIST)
+bot_c.send_message(config.ID_PERSON, 'Слышал ты снова с нами\n'
+                                     'Хотел напомнить, что ты не забывай про меня. А что знаю я тебя...\n',
+                                     parse_mode='html')
 
-    bot_c = telebot.TeleBot(config.TOKEN_CRIMINALIST)
-    bot_c.send_message(config.ID_PERSON, 'Слышал ты снова с нами\n'
-                                         'Хотел напомнить, что ты не забывай про меня. А что знаю я тебя...\n',
-                                         parse_mode='html')
+relationships_Bot__criminalist += crime.bot_criminalist_main(0, 'Скидывай мне улики, помогу тебе с ними. Если что,'
+                                                                ' они выглядят примерно так <b>"qwerty12"</b>')
 
-    relationships_Bot__criminalist += crime.bot_criminalist_main(0, 'Скидывай мне улики, помогу тебе с ними. Если что,'
-                                                                    ' они выглядят примерно так <b>"qwerty12"</b>')
-
-
-async def main_as():
-    task1 = asyncio.create_task(police_as())
-    task2 = asyncio.create_task(criminalist_as())
-
-    await asyncio.gather(task1, task2)
-
-
-asyncio.run(main_as())
 
 print(relationships_Bot__criminalist, relationships_Bot__police)
 
