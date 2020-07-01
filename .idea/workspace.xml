@@ -30,7 +30,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../резерв" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunManager" selected="Python.main">
@@ -145,51 +145,60 @@
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
     <state x="1375" y="103" width="1094" height="1210" key="DiffContextDialog/0.0.2560.1410/2560.0.1920.1050@0.0.2560.1410" timestamp="1592919988624" />
-    <state width="1260" height="400" key="GridCell.Tab.0.bottom" timestamp="1593186019576">
+    <state x="1694" y="462" key="FileChooserDialogImpl" timestamp="1593594631570">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state width="1260" height="400" key="GridCell.Tab.0.bottom/0.0.2560.1410/2560.0.1920.1050@0.0.2560.1410" timestamp="1593186019576" />
-    <state width="1260" height="400" key="GridCell.Tab.0.center" timestamp="1593186019575">
+    <state x="1694" y="462" key="FileChooserDialogImpl/0.0.2560.1410/2560.0.1920.1050@0.0.2560.1410" timestamp="1593594631570" />
+    <state width="1272" height="492" key="GridCell.Tab.0.bottom" timestamp="1593600602615">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state width="1260" height="400" key="GridCell.Tab.0.center/0.0.2560.1410/2560.0.1920.1050@0.0.2560.1410" timestamp="1593186019575" />
-    <state width="1260" height="400" key="GridCell.Tab.0.left" timestamp="1593186019575">
+    <state width="1272" height="492" key="GridCell.Tab.0.bottom/0.0.2560.1410/2560.0.1920.1050@0.0.2560.1410" timestamp="1593600602615" />
+    <state width="1272" height="492" key="GridCell.Tab.0.center" timestamp="1593600602614">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state width="1260" height="400" key="GridCell.Tab.0.left/0.0.2560.1410/2560.0.1920.1050@0.0.2560.1410" timestamp="1593186019575" />
-    <state width="1260" height="400" key="GridCell.Tab.0.right" timestamp="1593186019576">
+    <state width="1272" height="492" key="GridCell.Tab.0.center/0.0.2560.1410/2560.0.1920.1050@0.0.2560.1410" timestamp="1593600602614" />
+    <state width="1272" height="492" key="GridCell.Tab.0.left" timestamp="1593600602614">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state width="1260" height="400" key="GridCell.Tab.0.right/0.0.2560.1410/2560.0.1920.1050@0.0.2560.1410" timestamp="1593186019576" />
-    <state width="1260" height="492" key="GridCell.Tab.1.bottom" timestamp="1593185415860">
+    <state width="1272" height="492" key="GridCell.Tab.0.left/0.0.2560.1410/2560.0.1920.1050@0.0.2560.1410" timestamp="1593600602614" />
+    <state width="1272" height="492" key="GridCell.Tab.0.right" timestamp="1593600602614">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state width="1260" height="492" key="GridCell.Tab.1.bottom/0.0.2560.1410/2560.0.1920.1050@0.0.2560.1410" timestamp="1593185415860" />
-    <state width="1260" height="492" key="GridCell.Tab.1.center" timestamp="1593185415860">
+    <state width="1272" height="492" key="GridCell.Tab.0.right/0.0.2560.1410/2560.0.1920.1050@0.0.2560.1410" timestamp="1593600602614" />
+    <state width="1272" height="492" key="GridCell.Tab.1.bottom" timestamp="1593600609817">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state width="1260" height="492" key="GridCell.Tab.1.center/0.0.2560.1410/2560.0.1920.1050@0.0.2560.1410" timestamp="1593185415860" />
-    <state width="1260" height="492" key="GridCell.Tab.1.left" timestamp="1593185415860">
+    <state width="1272" height="492" key="GridCell.Tab.1.bottom/0.0.2560.1410/2560.0.1920.1050@0.0.2560.1410" timestamp="1593600609817" />
+    <state width="1272" height="492" key="GridCell.Tab.1.center" timestamp="1593600609817">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state width="1260" height="492" key="GridCell.Tab.1.left/0.0.2560.1410/2560.0.1920.1050@0.0.2560.1410" timestamp="1593185415860" />
-    <state width="1260" height="492" key="GridCell.Tab.1.right" timestamp="1593185415860">
+    <state width="1272" height="492" key="GridCell.Tab.1.center/0.0.2560.1410/2560.0.1920.1050@0.0.2560.1410" timestamp="1593600609817" />
+    <state width="1272" height="492" key="GridCell.Tab.1.left" timestamp="1593600609817">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state width="1260" height="492" key="GridCell.Tab.1.right/0.0.2560.1410/2560.0.1920.1050@0.0.2560.1410" timestamp="1593185415860" />
+    <state width="1272" height="492" key="GridCell.Tab.1.left/0.0.2560.1410/2560.0.1920.1050@0.0.2560.1410" timestamp="1593600609817" />
+    <state width="1272" height="492" key="GridCell.Tab.1.right" timestamp="1593600609817">
+      <screen x="0" y="0" width="2560" height="1410" />
+    </state>
+    <state width="1272" height="492" key="GridCell.Tab.1.right/0.0.2560.1410/2560.0.1920.1050@0.0.2560.1410" timestamp="1593600609817" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>27</line>
-          <option name="timeStamp" value="41" />
+          <line>29</line>
+          <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Bot__police.py</url>
-          <line>59</line>
-          <option name="timeStamp" value="42" />
+          <line>76</line>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Bot__police.py</url>
+          <line>62</line>
+          <option name="timeStamp" value="49" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -1,9 +1,8 @@
-import telebot
+import logging
 import config
-from time import sleep
-from telebot import types
-
-bot = telebot.TeleBot(config.TOKEN_POLICE)
+from config import bot, dp
+from aiogram import Bot, Dispatcher, executor, types
+import asyncio
 
 # отношение
 relationships = 0
@@ -56,8 +55,10 @@ bot_police = [
 
 
 # главная функия диалога
-def bot_police_main(num, content):
-    markup = types.ReplyKeyboardMarkup(row_width=1)  # создание клавиатуры
+
+async def start(num, content):
+
+    markup = types.ReplyKeyboardMarkup(row_width=1, one_time_keyboard=True)  # создание клавиатуры
 
     item1 = types.KeyboardButton(bot_police[num][0][0])
     item2 = types.KeyboardButton(bot_police[num][1][0])
@@ -66,22 +67,26 @@ def bot_police_main(num, content):
 
     markup.add(item1, item2, item3, item4)  # добовляем эелементы в клавиатуру
 
-    bot.send_message('991296393', content,
-                     parse_mode='html', reply_markup=markup)
+    await bot.send_message('991296393', content, reply_markup=markup)
 
     # ответ персонажа на ответ игрока
-    @bot.message_handler(content_types=['text'])
-    def said(message):
+    @dp.message_handler(content_types=['text'])
+    async def said(message: types.Message):
         global relationships
 
         for i in range(4):
             if message.text == bot_police[num][i][0]:
                 markup_remove = types.ReplyKeyboardRemove()
-                sleep(2)
-                bot.send_message(message.chat.id, bot_police[num][i][1], reply_markup=markup_remove)
-                bot.stop_polling()
+                await asyncio.sleep(2)
+                await bot.send_message(message.chat.id, bot_police[num][i][1], reply_markup=markup_remove)
                 relationships = bot_police[num][i][2]
+                break
 
-    bot.polling(none_stop=False, interval=0, timeout=1)  # запрос к серверу
+        return relationships
 
-    return relationships  # результат отношения от варината ответа
+
+def bot_police_main(num, content):
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(start(num, content))
+    loop.stop()
+    return relationships
