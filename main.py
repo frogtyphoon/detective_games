@@ -1,5 +1,4 @@
 import config
-from config import bot, dp
 from s_m import loop_m
 import time
 import asyncio
@@ -52,38 +51,56 @@ time_talk_answer = False
 # Первая развязка (1, 2, 3)
 if relationships_Bot__police >= 0:
     edit_main('Bot__police', 1, 'Я рад, что ты снова с нами в строю')
-    relationships_Bot__police += wait()
-    if relationships_Bot__police <= 0:
-        if police.bot_police_main(2, 'Совсем страх потерял?') < 0:
+    time_relationships = wait()
+    relationships_Bot__police += time_relationships
+    if time_relationships < 0:
+        edit_main('Bot__police', 2, 'Совсем страх потерял?')
+        if wait() < 0:
             relationships_Bot__police += -1
-            bot.send_message(config.ID_PERSON, 'Я сейчас на исходе, поэтому бегом на '
-                                                     'место преступления по адресу "УЛИЦА"\nКонец связи')
+            loop_m('Я сейчас на исходе, поэтому бегом на '
+                   'место преступления по адресу "УЛИЦА"\nКонец связи')
             time_talk_answer = True
         else:
             relationships_Bot__police += 1
-            bot.send_message(config.ID_PERSON, 'Кратко ввожу в курс дела. Рядом произошёл суицид, сходи да проверь там всё')
-            relationships_Bot__police += police.bot_police_main(3, 'Чтобы через 15 мин был там, понял?!')
+            loop_m('Кратко ввожу в курс дела. Рядом произошёл суицид, сходи да проверь там всё')
+            edit_main('Bot__police', 3, 'Чтобы через 15 мин был там, понял?!')
+            relationships_Bot__police += wait()
     else:
         loop_m('Тебе срочно надо выезжать "УЛИЦА", ведь убийца не дремлет')
-        relationships_Bot__police += police.bot_police_main(3,
-                                                            'Добраться до точки и просмотреть убийтво, тебе даётся'
-                                                            ' 15мин. Уяснил, Павел?')
+        edit_main('Bot__police', 3, 'Добраться до точки и просмотреть убийтво, тебе даётся 15мин. Уяснил, Павел?')
+        relationships_Bot__police += wait()
+
 # Вторая развязка (4)
 else:
-    if police.bot_police_main(4, 'Ещё раз что-то вякнишь, сниму зарплату!') < 0:
+    edit_main('Bot__police', 4, 'Ещё раз что-то вякнишь, тебе не жить')
+    time_relationships = wait()
+    relationships_Bot__police += time_relationships
+    if time_relationships < 0:
         time_talk_answer = True
         loop_m('Я знаю тебя очень хорошо, и если ты не хочешь, чтобы твоя карьера рухнула'
-                ' прямо сейча, то бегом на место преступления!\n'
-                'Вот координаты, сам разберёшься "КОООРДИНАТЫЫ"')
+               ' прямо сейчас, то бегом на место преступления!\n'
+               'Вот координаты, сам разберёшься "КОООРДИНАТЫЫ"')
     else:
         loop_m('Значит неподалеку что-то случилось, выдвигайся туда\nУ тебя есть 15 мин. Вот координаты "КООРЛДИНАТЫ"')
 
-# криминалист
-# bot_c = Bot(token=config.TOKEN_CRIMINALIST)
-# bot_c.send_message(config.ID_PERSON, 'Слышал ты снова с нами\n'
-#                                      'Хотел напомнить, что ты не забывай про меня. А что знаю я тебя...\n',
-#                                            parse_mode='html')
-#
-# relationships_Bot__criminalist += crime.bot_criminalist_main(0, 'Скидывай мне улики, помогу тебе с ними. Если что,'
-#                                                                 ' они выглядят примерно так <b>"qwerty12"</b>')
+# криминалист (0, 1)
+loop_m('Слышал ты снова с нами\nХотел напомнить, что ты не забывай про меня. А что знаю я тебя...\n', None,
+       config.TOKEN_CRIMINALIST)
+
+edit_main('Bot__криминалист', 0, 'Скидывай мне улики, помогу тебе с ними. Если что,'
+                                 ' они выглядят примерно так <b>"qwerty12"</b>')
+relationships_Bot__criminalist += wait()
+
+if relationships_Bot__criminalist == 0:
+    edit_main('Bot__криминалист', 1, 'Я не удивлён')
+    relationships_Bot__criminalist += wait()
+    # time_relationships = wait()
+    # relationships_Bot__criminalist += time_relationships
+    # if time_relationships == -1:
+    #     loop_m('мда...')
+    # elif time_relationships == 1:
+    #     loop_m('спасибо на этом.. Удати там, поторопись')
+    # else:
+    #     loop_m('Постараюсь')
+
 print(relationships_Bot__criminalist, relationships_Bot__police)

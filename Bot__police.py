@@ -1,10 +1,11 @@
 import logging
 import config
-from config import bot, dp
 from aiogram import Bot, Dispatcher, executor, types
 import asyncio
-from s_m import loop_m
 from connect import edit_bot
+
+bot = Bot(token=config.TOKEN_POLICE)
+dp = Dispatcher(bot)
 
 # отношение
 relationships, num = 0, 0
@@ -43,7 +44,7 @@ bot_police = [
     [
         # 3
         ['Так точно', 'Жду отчётов', 0],
-        ['Как скажите, брат)', 'Жду отчётов', 1],
+        ['Как скажите', 'Жду отчётов', 0],
         ['Конец связи', 'Жду отчётов', 0],
         ['15 мин, тоже мне', 'Попробуй только опоздать', -1],
     ],
