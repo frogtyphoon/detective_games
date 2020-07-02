@@ -3,9 +3,13 @@ import config
 from config import bot, dp
 from aiogram import Bot, Dispatcher, executor, types
 import asyncio
+from s_m import loop_m
+from connect import edit_bot
 
 # отношение
-relationships = 0
+relationships, num = 0, 0
+
+logging.basicConfig(level=logging.INFO)
 
 # список [ответов игрока, ответов персонажа, зависимоть отношения]
 bot_police = [
@@ -54,39 +58,46 @@ bot_police = [
 ]
 
 
-# главная функия диалога
+# ответ персонажа на ответ игрока
+@dp.message_handler(content_types=['text'])
+async def said(message: types.Message):
+    global relationships
 
-async def start(num, content):
+    for i in range(4):
+        if message.text == bot_police[num][i][0]:
+            markup_remove = types.ReplyKeyboardRemove()
+            await asyncio.sleep(2)
+            await bot.send_message(message.chat.id, bot_police[num][i][1], reply_markup=markup_remove)
+            relationships = bot_police[num][i][2]
+            break
 
-    markup = types.ReplyKeyboardMarkup(row_width=1, one_time_keyboard=True)  # создание клавиатуры
-
-    item1 = types.KeyboardButton(bot_police[num][0][0])
-    item2 = types.KeyboardButton(bot_police[num][1][0])
-    item3 = types.KeyboardButton(bot_police[num][2][0])
-    item4 = types.KeyboardButton(bot_police[num][3][0])
-
-    markup.add(item1, item2, item3, item4)  # добовляем эелементы в клавиатуру
-
-    await bot.send_message('991296393', content, reply_markup=markup)
-
-    # ответ персонажа на ответ игрока
-    @dp.message_handler(content_types=['text'])
-    async def said(message: types.Message):
-        global relationships
-
-        for i in range(4):
-            if message.text == bot_police[num][i][0]:
-                markup_remove = types.ReplyKeyboardRemove()
-                await asyncio.sleep(2)
-                await bot.send_message(message.chat.id, bot_police[num][i][1], reply_markup=markup_remove)
-                relationships = bot_police[num][i][2]
-                break
-
-        return relationships
+    edit_bot(relationships)
 
 
-def bot_police_main(num, content):
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(start(num, content))
-    loop.stop()
-    return relationships
+async def check():
+    global num
+    while True:
+        f = open('text.txt', 'r+', encoding='utf8')
+        text = [str(i) for i in f.read().split('|')]
+        f.close()
+        if text[0] == 'Bot__police':
+            open('text.txt', 'w').close()
+            num = int(text[1])
+
+            # главная функия диалога
+            markup = types.ReplyKeyboardMarkup(row_width=1, one_time_keyboard=True)  # создание клавиатуры
+
+            item1 = types.KeyboardButton(bot_police[num][0][0])
+            item2 = types.KeyboardButton(bot_police[num][1][0])
+            item3 = types.KeyboardButton(bot_police[num][2][0])
+            item4 = types.KeyboardButton(bot_police[num][3][0])
+
+            markup.add(item1, item2, item3, item4)  # добовляем эелементы в клавиатуру
+
+            await bot.send_message(config.ID_PERSON, text[2], reply_markup=markup)
+        await asyncio.sleep(1)
+
+
+if __name__ == '__main__':
+    dp.loop.create_task(check())
+    executor.start_polling(dp, skip_updates=True)
