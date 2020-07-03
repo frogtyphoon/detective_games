@@ -1,6 +1,6 @@
 import config
 from s_m import loop_m
-import time
+from time import sleep
 import asyncio
 from connect import edit_main
 
@@ -17,7 +17,7 @@ def wait():
         if text[0] == 'main':
             open('text.txt', 'w').close()
             break
-        time.sleep(1)
+        sleep(1)
 
     return int(text[1])
 
@@ -61,8 +61,10 @@ if relationships_Bot__police >= 0:
     else:
         loop_m('У нас неподалеку совершилось самоубийство. Тебе стоит выехать и разобраться.'
                ' Возможно, здесь что-то не чисто. Это серьёзное дело, будь готов ко всему')
-        loop_m('Тебе срочно надо выезжать на "УЛИЦА", ведь убийца не дремлет')
-        loop_m('ТТебе даётся 15 мин, чтобы добраться до точки и просмотреть место происшествиея')
+        sleep(2)
+        loop_m('Тебе срочно надо выезжать на "УЛИЦА", ведь всё возможно')
+        sleep(1)
+        loop_m('Тебе даётся 15 мин, чтобы добраться до точки и просмотреть место происшествия')
         edit_main('Bot__police', 3, 'Всё уяснил, Павел?')
         relationships_Bot__police += wait()
 
@@ -99,4 +101,4 @@ if relationships_Bot__criminalist == 0:
     # else:
     #     loop_m('Постараюсь')
 
-print(relationships_Bot__criminalist, relationships_Bot__police)
+print(relationships_Bot__police, relationships_Bot__criminalist)
