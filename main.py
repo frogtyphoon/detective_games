@@ -3,6 +3,7 @@ from s_m import loop_m
 from time import sleep
 import asyncio
 from connect import edit_main
+import Bot__journalist
 
 # Отношения с игроком
 relationships_Bot__police, relationships_Bot__criminalist = 0, 0
@@ -35,8 +36,6 @@ loop_m('У тебя осталось 24 часа, и если ты будешь 
 edit_main('Bot__police', 0, 'Отвечай как можно скорей!')
 
 relationships_Bot__police += wait()
-
-print(relationships_Bot__police, relationships_Bot__criminalist)
 
 # при плохих отношениях, майор не скажет о времени, а только потом напомнит ему
 time_talk_answer = False
@@ -92,13 +91,15 @@ relationships_Bot__criminalist += wait()
 if relationships_Bot__criminalist == 0:
     edit_main('Bot__криминалист', 1, 'Всё по старой схеме')
     relationships_Bot__criminalist += wait()
-    # time_relationships = wait()
-    # relationships_Bot__criminalist += time_relationships
-    # if time_relationships == -1:
-    #     loop_m('мда...')
-    # elif time_relationships == 1:
-    #     loop_m('спасибо на этом.. Удати там, поторопись')
-    # else:
-    #     loop_m('Постараюсь')
 
-print(relationships_Bot__police, relationships_Bot__criminalist)
+# первые новости, bot__journalist
+Bot__journalist.news_1()    
+
+# помощник (знакомство)
+loop_m('Привет, я помощник криминалиста. Хотел сказать, что отправляй мне все улики,'
+       ' которые найдешь. Они выглядят примерно так “asdfgq” Я тебе отправлю по ним показания,'
+       ' а в случаи чего криминалист поможет тебе. Дам подсказку. Он парень добрый, постарайся с'
+       ' ним обращаться хорошо и он сможет давать показаний больше.', None, config.TOKEN_HELP)
+
+if relationships_Bot__criminalist < 0:
+    loop_m('Дам подсказку. Он парень добрый, постарайся с ним обращаться хорошо и он сможет давать показаний больше.')
