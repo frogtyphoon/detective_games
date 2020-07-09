@@ -35,6 +35,11 @@ bot_criminalist = [
 ]
 
 
+@dp.message_handler(commands=['JURXEP'])
+async def said(message: types.Message):
+    await bot.send_message(message.chat.id, 'fff')
+
+
 # ответ персонажа на ответ игрока
 @dp.message_handler(content_types=['text'])
 async def said(message: types.Message):

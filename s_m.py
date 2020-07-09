@@ -2,7 +2,7 @@ import logging
 import config
 import asyncio
 
-from aiogram import Bot, Dispatcher, executor, types
+from aiogram import Bot
 logging.basicConfig(level=logging.INFO)
 
 bot = Bot(token=config.TOKEN_POLICE)
