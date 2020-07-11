@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de828781-e3d2-4675-ab55-edbaa78619aa" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/detective_games.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/detective_games.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bot__admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bot__admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bot__criminalist.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bot__criminalist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bot__police.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bot__police.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/text.txt" beforeDir="false" afterPath="$PROJECT_DIR$/text.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +38,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../f" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.Bot__criminalist">
     <configuration name="Bot__криминалист" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="detective_games" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -140,9 +146,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main" />
         <item itemvalue="Python.Bot__criminalist" />
         <item itemvalue="Python.Bot__police" />
+        <item itemvalue="Python.main" />
         <item itemvalue="Python.Bot__криминалист" />
         <item itemvalue="Python.test" />
       </list>
@@ -170,21 +176,25 @@
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
     <state x="1694" y="462" key="FileChooserDialogImpl/0.0.2560.1410/2560.0.1920.1050@0.0.2560.1410" timestamp="1593657450015" />
-    <state width="1256" height="263" key="GridCell.Tab.0.bottom" timestamp="1594278251441">
-      <screen x="0" y="0" width="2560" height="1410" />
+    <state width="1345" height="146" key="GridCell.Tab.0.bottom" timestamp="1594483561159">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1345" height="146" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1594483561159" />
     <state width="1256" height="263" key="GridCell.Tab.0.bottom/0.0.2560.1410/2560.0.1920.1050@0.0.2560.1410" timestamp="1594278251441" />
-    <state width="1256" height="263" key="GridCell.Tab.0.center" timestamp="1594278251441">
-      <screen x="0" y="0" width="2560" height="1410" />
+    <state width="1345" height="146" key="GridCell.Tab.0.center" timestamp="1594483561159">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1345" height="146" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1594483561159" />
     <state width="1256" height="263" key="GridCell.Tab.0.center/0.0.2560.1410/2560.0.1920.1050@0.0.2560.1410" timestamp="1594278251441" />
-    <state width="1256" height="263" key="GridCell.Tab.0.left" timestamp="1594278251441">
-      <screen x="0" y="0" width="2560" height="1410" />
+    <state width="1345" height="146" key="GridCell.Tab.0.left" timestamp="1594483561159">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1345" height="146" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1594483561159" />
     <state width="1256" height="263" key="GridCell.Tab.0.left/0.0.2560.1410/2560.0.1920.1050@0.0.2560.1410" timestamp="1594278251441" />
-    <state width="1256" height="263" key="GridCell.Tab.0.right" timestamp="1594278251441">
-      <screen x="0" y="0" width="2560" height="1410" />
+    <state width="1345" height="146" key="GridCell.Tab.0.right" timestamp="1594483561159">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1345" height="146" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1594483561159" />
     <state width="1256" height="263" key="GridCell.Tab.0.right/0.0.2560.1410/2560.0.1920.1050@0.0.2560.1410" timestamp="1594278251441" />
     <state width="1256" height="418" key="GridCell.Tab.1.bottom" timestamp="1594278249315">
       <screen x="0" y="0" width="2560" height="1410" />
@@ -208,12 +218,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Bot__police.py</url>
-          <line>76</line>
+          <line>90</line>
           <option name="timeStamp" value="56" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>29</line>
+          <line>31</line>
           <option name="timeStamp" value="58" />
         </line-breakpoint>
       </breakpoints>

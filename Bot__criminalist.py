@@ -35,9 +35,49 @@ bot_criminalist = [
 ]
 
 
+# первое убийство
+# пока улики выглядт как текст, возможно в будущем это буду картинки
+
+# улика 1
+@dp.message_handler(commands=['cvDfQx'])
+async def said(message: types.Message):
+    await bot.send_message(message.chat.id, 'На шее есть едва заметный след от веревки,'
+                                            ' подозрение на удушение, а не самоубийство')  # отправляем улику
+    edit_bot(0)  # говорим, что одна улика найдена
+
+
+# улика 2
+@dp.message_handler(commands=['YxCcog'])
+async def said(message: types.Message):
+    await bot.send_message(message.chat.id, 'Не одни мужские следы в прихожей, был кто-то еще, кроме ее парня.')
+    edit_bot(0)  # говорим, что одна улика найдена
+
+
+# улика 3
 @dp.message_handler(commands=['JURXEP'])
 async def said(message: types.Message):
-    await bot.send_message(message.chat.id, 'fff')
+    await bot.send_message(message.chat.id, 'Предсмертная записка на кухонном столе, но почерк не ее, '
+                                            'если разобрать тетради с записями с лекций.')  # отправляем улику
+    edit_bot(0)  # говорим, что одна улика найдена
+
+
+# улика 4
+@dp.message_handler(commands=['xBorjB'])
+async def said(message: types.Message):
+    await bot.send_message(message.chat.id, 'В личном дневнике девушки, спрятанном на кухне, есть записи о том, что она'
+                                            ' кого-то боится, подозрение, что убийцу.')  # отправляем улику
+    edit_bot(0)  # говорим, что одна улика найдена
+
+
+# улика 5
+@dp.message_handler(commands=['fHuFhQ'])
+async def said(message: types.Message):
+    await bot.send_message(message.chat.id, 'В кухонном шкафу найдены шприцы, как их применяла '
+                                            'девушка- не известно.')  # отправляем улику
+    edit_bot(0)  # говорим, что одна улика найдена
+
+# Второе убийство
+# .....
 
 
 # ответ персонажа на ответ игрока
