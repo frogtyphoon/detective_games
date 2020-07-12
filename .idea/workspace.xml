@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de828781-e3d2-4675-ab55-edbaa78619aa" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/detective_games.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/detective_games.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bot__admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bot__admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bot__criminalist.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bot__criminalist.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bot__police.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bot__police.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/text.txt" beforeDir="false" afterPath="$PROJECT_DIR$/text.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
