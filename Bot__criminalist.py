@@ -77,8 +77,142 @@ async def said(message: types.Message):
     edit_bot(0)  # говорим, что одна улика найдена
 
 # Второе убийство
-# .....
 
+# улика 1
+@dp.message_handler(commands=['tYeowX'])
+async def said(message: types.Message):
+    await bot.send_message(message.chat.id, 'Пуля была выпущена с правой стороны, но жена говорит, что он был левшой.') # отправляем улику
+    edit_bot(0)  # говорим, что одна улика найдена
+
+
+# улика 2
+@dp.message_handler(commands=['alVmku'])
+async def said(message: types.Message):
+    await bot.send_message(message.chat.id, 'В доме были найдены следы драки, о чем свидетельствует кровь на полу возле входной двери.')
+    edit_bot(0)  # говорим, что одна улика найдена
+
+
+# улика 3
+@dp.message_handler(commands=['SRhzEk'])
+async def said(message: types.Message):
+    await bot.send_message(message.chat.id, 'Шприцы с неизвестным веществом были найдены в мусорном баке недалеко от дома.')  # отправляем улику
+    edit_bot(0)  # говорим, что одна улика найдена
+
+
+# улика 4
+@dp.message_handler(commands=['OCVfku'])
+async def said(message: types.Message):
+    await bot.send_message(message.chat.id, 'Открытая квартира, значит, убийца не закрыл за собой дверь, после убийства')  # отправляем улику
+    edit_bot(0)  # говорим, что одна улика найдена
+
+
+# улика 5
+@dp.message_handler(commands=['lLAinF'])
+async def said(message: types.Message):
+    await bot.send_message(message.chat.id, 'Еще теплая сигарета, если бы это было самоубийство, он бы докурил.')  # отправляем улику
+    edit_bot(0)  # говорим, что одна улика найдена
+
+# Третье убийство
+
+# улика 1
+@dp.message_handler(commands=['EWiBQY'])
+async def said(message: types.Message):
+    await bot.send_message(message.chat.id, 'Горячий чайник и две кружки, одна из которых стояла помытой возле раковины.') # отправляем улику
+    edit_bot(0)  # говорим, что одна улика найдена
+
+
+# улика 2
+@dp.message_handler(commands=['EGgSmc'])
+async def said(message: types.Message):
+    await bot.send_message(message.chat.id, 'Сцарапанный лак на ногтях, жертва сопротивлялась и пыталась удержаться.')
+    edit_bot(0)  # говорим, что одна улика найдена
+
+
+# улика 3
+@dp.message_handler(commands=['bvGuQd'])
+async def said(message: types.Message):
+    await bot.send_message(message.chat.id, 'На жертве замечены заживающие следы от инъекций')  # отправляем улику
+    edit_bot(0)  # говорим, что одна улика найдена
+
+
+# улика 4
+@dp.message_handler(commands=['ADzzJz'])
+async def said(message: types.Message):
+    await bot.send_message(message.chat.id, 'Содранная мужская сережка, зажатая в кулаке жертвы, с кровью неизвестного')  # отправляем улику
+    edit_bot(0)  # говорим, что одна улика найдена
+
+
+# улика 5
+@dp.message_handler(commands=['OakEHo'])
+async def said(message: types.Message):
+    await bot.send_message(message.chat.id, 'Найден дневник с записью на неизвестном языке, а также шприцы за батареей.')  # отправляем улику
+    edit_bot(0)  # говорим, что одна улика найдена
+
+# Четвертое убийство
+
+# улика 1
+@dp.message_handler(commands=['HdKpla'])
+async def said(message: types.Message):
+    await bot.send_message(message.chat.id, 'В сумке найдены шприцы и вложенные в записную книгу пакетики с неизвестным веществом.') # отправляем улику
+    edit_bot(0)  # говорим, что одна улика найдена
+
+
+# улика 2
+@dp.message_handler(commands=['EbaSkQ'])
+async def said(message: types.Message):
+    await bot.send_message(message.chat.id, 'На венах девушки видны были уже заживающие следы от инъекций.')
+    edit_bot(0)  # говорим, что одна улика найдена
+
+
+# улика 3
+@dp.message_handler(commands=['xPAlvZ'])
+async def said(message: types.Message):
+    await bot.send_message(message.chat.id, 'Нашли на руке какие-то символы. Пхоже на адрес или пароль. Думаю с ними стоит разобраться потом')  # отправляем улику
+    edit_bot(0)  # говорим, что одна улика найдена
+
+
+# улика 4
+@dp.message_handler(commands=['jDsWcm'])
+async def said(message: types.Message):
+    await bot.send_message(message.chat.id, 'Пена у рта похожа, на ту, что бывает при отравлении сильнейшим ядом - мышьяком.')  # отправляем улику
+    edit_bot(0)  # говорим, что одна улика найдена
+
+# Пятое убийство
+
+# улика 1
+@dp.message_handler(commands=['WjYyPx'])
+async def said(message: types.Message):
+    await bot.send_message(message.chat.id, 'В шприце, который использовала жертва, видно, что вместо стандартной нормы был весь шприц, '
+                                            'что говорит о смертельной дозе') # отправляем улику
+    edit_bot(0)  # говорим, что одна улика найдена
+
+
+# улика 2
+@dp.message_handler(commands=['vHTupk'])
+async def said(message: types.Message):
+    await bot.send_message(message.chat.id, 'На пострадавшем есть следы от удушья.')
+    edit_bot(0)  # говорим, что одна улика найдена
+
+
+# улика 3
+@dp.message_handler(commands=['aSDzMl'])
+async def said(message: types.Message):
+    await bot.send_message(message.chat.id, 'На дверной руке имеются следы крови, но не жертвы. Скорее всего, убийца поранился шприцем.')  # отправляем улику
+    edit_bot(0)  # говорим, что одна улика найдена
+
+
+# улика 4
+@dp.message_handler(commands=['mCSysL'])
+async def said(message: types.Message):
+    await bot.send_message(message.chat.id, 'На полу имеются потертости. Скорее всего, убийца был в обуви с грубой подошвой.')  # отправляем улику
+    edit_bot(0)  # говорим, что одна улика найдена
+
+
+# улика 5
+@dp.message_handler(commands=['FbmigM'])
+async def said(message: types.Message):
+    await bot.send_message(message.chat.id, 'В мусорном ведре есть пустые пакетики, в которых было неизвестное содержимое.')  # отправляем улику
+    edit_bot(0)  # говорим, что одна улика найдена
 
 # ответ персонажа на ответ игрока
 @dp.message_handler(content_types=['text'])
