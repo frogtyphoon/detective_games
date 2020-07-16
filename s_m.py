@@ -22,17 +22,17 @@ def loop_m(message, k=None, bot_t=None):
     loop.run_until_complete(start(message, k))
 
 
-async def photo(m, k=None):
-    await bot.send_photo(config.ID_PERSON, m, reply_markup=k)
+async def photo(m, ):
+    await bot.send_photo(config.ID_PERSON, m)
 
 
 # для отправки фото
-def loop_m_photo(message, k=None, bot_t=None):
+def loop_m_photo(message, bot_t=None):
     global bot
     if bool(bot_t):
         bot = Bot(token=bot_t)
     loop = asyncio.get_event_loop()
-    loop.run_until_complete(photo(message, k))
+    loop.run_until_complete(photo(message))
 
 
 # для отправи сообщения админу. оповещение
