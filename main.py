@@ -16,9 +16,9 @@ suspect = []
 # обработчик отношений, ждёт изменений в файле
 def wait():
     while True:
-        f = open('text.txt', 'r+', encoding='utf8')
-        text = [str(i) for i in f.read().split('|')]
-        f.close()
+        file = open('text.txt', 'r+', encoding='utf8')
+        text = [str(i) for i in file.read().split('|')]
+        file.close()
         if text[0] == 'main':
             open('text.txt', 'w').close()
             break
@@ -41,7 +41,7 @@ loop_m('У тебя осталось 24 часа, и если ты будешь 
 
 edit_main('Bot__police', 0, 'Отвечай как можно скорей!')
 
-relationships_Bot__police += wait()
+relationships_Bot__police += wait()  # ждёи ответа
 
 # при плохих отношениях, майор не скажет о времени, а только потом напомнит ему
 time_talk_answer = False
@@ -96,6 +96,7 @@ loop_m('Слышал, ты снова с нами\nХотел напомнить
 edit_main('Bot__криминалист', 0, 'Я буду помогать тебе с уликами. Отправляй мне все улики, которые найдешь.'
                                  ' Они выглядят примерно так “asdfgq” Я тебе отправлю по ним показания.'
                                  ' Отправляй через "/"')
+
 relationships_Bot__criminalist += wait()
 
 if relationships_Bot__criminalist == 0:
@@ -114,10 +115,10 @@ loop_m_photo('AgACAgIAAxkDAAIBcV8QPvYaD3u0_ZPyt8w3VdCwOqX1AAJkrjEbPNiBSCta4itSNv
 
 # если нагрубил, то о времени сообщается позже. примерно 5 мин от времени которое даётся
 sleep(60)  # должно быть 60 = 1мин
+
 if time_talk_answer:
     loop_m('Совсем забыл сказать, что мы ограничены по времени и работать нужно как можно быстрее,'
-           ' иначе приедут федералы и будет худо\nУ тебя на все дела осталось 20 мин', None, config.TOKEN_POLICE)
-
+           ' иначе приедут федералы и будет худо\nУ тебя на все дела осталось 15 мин', None, config.TOKEN_POLICE)
 
 # ПЕРВОЕ УБИЙСТВО
 # оповещение для админа
@@ -320,7 +321,7 @@ sleep(3)
 
 # выбор подзреваемого
 loop_m('Мы узнали много нового и перед нами есть пару подозрительных личностей. '
-       'Это парень и подруга. Тебе стоит сделать выбор, кого задержать')
+       'Это парень и подруга. Тебе стоит сделать выбор, кого задержать', None, config.TOKEN_POLICE)
 edit_main('Bot__police', 7, 'Если сделаешь неправильный выбор, это может сказаться на расследовнии')
 
 # подсказка при хороших отношениях с криминалистом
@@ -328,22 +329,22 @@ if relationships_Bot__criminalist > 0:
     sleep(1)
     loop_m('Просмотрев место происшествия ещё раз, мы обнаружили улику.'
            ' Под ногтями есть кожный эпителий неизвестного мужчины..'
-           ' Возможно это что-то значит', None, config.TOKEN_CRIMINALIST)
+           ' Возможно это что-то значит')
 
 if wait() == 0:
     sleep(3)
     loop_m('Парень задержан\nЕго Алиби - "Я пришел к ней в восьмом часу, может, в 7:10. Ушел от нее в 7:40.'
            '  Я не убивал ее, я ее любил, несмотря вообще ни на что!" Вам решать, врёт он или нет, но проверить '
-           'мы сможем его только потом', None, config.TOKEN_POLICE)
+           'мы сможем его только потом')
     suspect.append('Парень')
 else:
     sleep(3)
     loop_m('Подруга задержана\nЕё Алиби - "Я виделась с ней вчера вечером, все было хорошо. В 9 утра я была на другом'
            ' конце города, в универе сдавала долги, можете спросить преподавателя по математике" Вам решать,'
-           ' врёт она или нет, но сообщить правду мы смоежм только позже', None, config.TOKEN_POLICE)
+           ' врёт она или нет, но сообщить правду мы смоежм только позже')
     suspect.append('Подруга, Алина')
 
-# сообщения о новом убийстве
+# сообщения о новом убийстве админу
 loop_m_admin('Начинается второе убийство')
 
 sleep(10)
@@ -601,7 +602,7 @@ Bot__journalist.news_3()
 count = 0  # подсчёт улик
 
 # считает улики и видёт подсчёт времени
-for i in range(60, 1, -1):  # 600сек = 10 мин
+for i in range(600, 1, -1):  # 600сек = 10 мин
     if i == 600 or i == 300 or i == 60:  # оповещение для админа
         loop_m_admin(str(i // 60) + 'мин')
 
@@ -923,14 +924,9 @@ sleep(3)
 # мини диалог (21, 22), выбор подозреваемого
 loop_m('Хм, тут всё странно...', None, config.TOKEN_POLICE)
 edit_main('Bot__police', 21, 'Думаешь тут есть вообще подозреваемые?')
-time_relationships = wait()
-relationships_Bot__police += time_relationships
-if time_relationships == 0:
-    edit_main('Bot__police', 22, 'Ну как знаешь, делай выбор')
-elif time_relationships == 1:
-    edit_main('Bot__police', 22, 'Ага... Но всё равно выбор за тобой')
-else:
-    edit_main('Bot__police', 22, 'Ещё  дурак... ну да, да\nДелай выбор уже давай')
+
+relationships_Bot__police += wait()
+edit_main('Bot__police', 22, 'Жду')
 
 time_relationships = wait()
 if time_relationships == 1:
@@ -1009,7 +1005,7 @@ loop_m_photo('AgACAgIAAxkDAAIBdV8QPvlyIi-B0on72v1mbaq2UtH2AAJorjEbPNiBSCHUwW0WJP
 
 sleep(120)  # 120 = 2мин
 # 5 новости
-Bot__journalist.news_5()
+Bot__journalist.news_4()
 
 
 # ПЯТОЕ УБИЙСТВО
@@ -1190,11 +1186,13 @@ if wait() == 1:
     loop_m('XXX', None, config.TOKEN_HELP)
     loop_m('XXX', None, config.TOKEN_FORTUNETELLER)
     loop_m('XXX', None, config.TOKEN_ADMIN)
+    loop_m('XXX', None, config.TOKEN_JOURNALIST)
     loop_m('XXX', None, config.TOKEN_POLICE)
     loop_m('XXX', None, config.TOKEN_CRIMINALIST)
     loop_m('XXX', None, config.TOKEN_HELP)
     loop_m('XXX', None, config.TOKEN_FORTUNETELLER)
     loop_m('XXX', None, config.TOKEN_ADMIN)
+    loop_m('XXX', None, config.TOKEN_JOURNALIST)
     sleep(10)
     Bot__journalist.news_end1()
 
@@ -1204,10 +1202,12 @@ else:
     loop_m('XXX', None, config.TOKEN_HELP)
     loop_m('XXX', None, config.TOKEN_FORTUNETELLER)
     loop_m('XXX', None, config.TOKEN_ADMIN)
+    loop_m('XXX', None, config.TOKEN_JOURNALIST)
     loop_m('XXX', None, config.TOKEN_POLICE)
     loop_m('XXX', None, config.TOKEN_CRIMINALIST)
     loop_m('XXX', None, config.TOKEN_HELP)
     loop_m('XXX', None, config.TOKEN_FORTUNETELLER)
     loop_m('XXX', None, config.TOKEN_ADMIN)
+    loop_m('XXX', None, config.TOKEN_JOURNALIST)
     sleep(10)
     Bot__journalist.news_end2()
