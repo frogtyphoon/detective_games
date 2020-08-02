@@ -296,16 +296,19 @@ async def said(message: types.Message):
 @dp.message_handler(content_types=['text'])
 async def said(message: types.Message):
     global relationships
+    global num
 
-    for i in range(4):
-        if message.text == bot_criminalist[num][i][0]:
-            markup_remove = types.ReplyKeyboardRemove()
-            await asyncio.sleep(2)
-            await bot.send_message(message.chat.id, bot_criminalist[num][i][1], reply_markup=markup_remove)
-            relationships = bot_criminalist[num][i][2]
-            break
+    if num >= 0:
+        for i in range(4):
+            if message.text == bot_criminalist[num][i][0]:
+                markup_remove = types.ReplyKeyboardRemove()
+                await asyncio.sleep(2)
+                await bot.send_message(message.chat.id, bot_criminalist[num][i][1], reply_markup=markup_remove)
+                relationships = bot_criminalist[num][i][2]
+                break
 
-    edit_bot(relationships)
+        edit_bot(relationships)
+        num = -1
 
 
 async def check():

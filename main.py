@@ -728,7 +728,7 @@ else:
 
 sleep(10)
 
-loop_m('Так, ну пока у нас затишье можете взглянуть на всё происходящие и подумать')
+loop_m('Так, ну пока у нас затишье можешь взглянуть на всё происходящие и подумать')
 
 sleep(120)  # 120сек = 2мин
 
@@ -821,8 +821,9 @@ loop_m('Ваше досье, детектив', None, config.TOKEN_CRIMINALIST)
 loop_m_photo('AgACAgIAAxkDAAIBdF8QPvjbnwmpwXUxXmL3AUIlE8YpAAJnrjEbPNiBSC4S9kk5zc1Ka_zski4AAwEAAwIAA3kAA2rSAwABGgQ')
 
 sleep(180)  # 3мин = 180сек
-# Новости
-Bot__journalist.news_5()
+
+# 4 Новости
+Bot__journalist.news_4()
 
 
 # ЧЕТВЁРТОЕ УБИЙСТВО
@@ -924,8 +925,8 @@ sleep(3)
 # мини диалог (21, 22), выбор подозреваемого
 loop_m('Хм, тут всё странно...', None, config.TOKEN_POLICE)
 edit_main('Bot__police', 21, 'Думаешь тут есть вообще подозреваемые?')
-
 relationships_Bot__police += wait()
+
 edit_main('Bot__police', 22, 'Жду')
 
 time_relationships = wait()
@@ -943,7 +944,7 @@ else:
 
 sleep(8)
 
-# Секретный чат, ккримналист
+# Секретный чат, кримналист
 loop_m('Мы нашли символы на руке. Пока ты разговаривал, я разгадал шифр. Это секретный чат. '
        'Я его сейчас активирую и тебе должен кто-то написать.  Жди', None, config.TOKEN_CRIMINALIST)
 
@@ -954,7 +955,8 @@ loop_m('Привет', None, config.TOKEN_FORTUNETELLER)
 sleep(2)
 edit_main('Bot__fortuneteller', 0, 'Ты разгадал мою загадку')
 
-if wait() == 0:
+count = wait()
+if count == 0:
     edit_main('Bot__fortuneteller', 1, 'Другой вопрос, кто ты такой')
     wait()
 
@@ -966,10 +968,12 @@ sleep(1)
 loop_m('Что-то не так?')
 sleep(3)
 edit_main('Bot__fortuneteller', 4, 'Будьте честны со мной, и я буду честна с вами')
-if wait() == 0:
+
+count = wait()
+if count == 0:
     loop_m('Не могу рассказать всё, иначе сама буду в опасности, но могу сказать точно, что это не тот,'
            ' кого вы подозреваете')
-    edit_main('Bot__fortuneteller', 5, 'Будьте честны со мной, и я буду честна с вами')
+    edit_main('Bot__fortuneteller', 5, 'Это всё')
     wait()
 else:
     edit_main('Bot__fortuneteller', 6, 'Мы давно не общались')
@@ -1004,9 +1008,9 @@ loop_m('Досье для пятого убийства', None, config.TOKEN_CRI
 loop_m_photo('AgACAgIAAxkDAAIBdV8QPvlyIi-B0on72v1mbaq2UtH2AAJorjEbPNiBSCHUwW0WJPT2dvHpki4AAwEAAwIAA3kAA_jWAwABGgQ')
 
 sleep(120)  # 120 = 2мин
-# 5 новости
-Bot__journalist.news_4()
 
+# 5 новости
+Bot__journalist.news_5()
 
 # ПЯТОЕ УБИЙСТВО
 
@@ -1031,10 +1035,10 @@ sleep(5)
 
 loop_m('Снова федералы...', None, config.TOKEN_POLICE)
 sleep(2)
-loop_m('Ну что, идём разговаривать и снова с ограничением и-за федералов...')
+loop_m('Ну что, идём разговаривать и снова с ограничением из-за федералов...')
 
 # разговор с подозреваемыми
-for i in range(2):
+for _ in range(2):
     edit_main('Bot__police', 24, 'Кого берёшь?')  # отдаём через файл команду полицаю
     count = wait()  # выбираем кого опрашиваем
 

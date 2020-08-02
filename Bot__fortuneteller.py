@@ -15,13 +15,13 @@ side, num = 0, 0
 Bot_fortuneteller = [
     [
         # 0, вступление
-        ['Вы кто?', 'Я гадалка', 0],
+        ['Кто вы?', 'Я гадалка', 0],
         ['Здравствуйте. Позволите задать вам несколько вопросов?', 'Да', 1],
     ],
     [
         # 1
         ['Нет времени. Могу я вам задать несколько вопросов?', 'Да', 0],
-        ['Не могу сказать, можем перейти к делу?', 'Да', 1],
+        ['Не могу сказать, можем перейти к делу?', 'Да', 0],
     ],
     [
         # 2
@@ -64,7 +64,7 @@ Bot_fortuneteller = [
 async def said(message: types.Message):
     global side
 
-    for i in range(1):
+    for i in range(2):
         if message.text == Bot_fortuneteller[num][i][0]:
             markup_remove = types.ReplyKeyboardRemove()
             await asyncio.sleep(2)
